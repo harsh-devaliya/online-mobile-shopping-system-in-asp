@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="client.master.cs" Inherits="Ecommerce.client" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <link href="css/lato.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/themes/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/alertify.min.css" rel="stylesheet" />
+    <link href="css/sweetalert2.min.css" rel="stylesheet" />
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/alertify.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <title>E-Commerce Website</title>
+
+    <style>
+        body {
+            font-family: "Lato";
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            color: black;
+        }
+
+        .nav-item .dropdown-item {
+            font-size: 18px;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <%-- navbar section --%>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-3">
+                <div class="container">
+                    <a class="navbar-brand" href="index.aspx" style="font-size:24px;;font-family:'Trebuchet MS';letter-spacing:2px;">
+                        UMIYA MOBILE
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.aspx">Home</a>
+                            </li>
+                            <%--<li class="nav-item">
+                                <a class="nav-link" href="category.aspx">Category</a>
+                            </li>--%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Category
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="category.aspx">all category</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=apple">apple</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=samsung">samsung</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=oneplus">oneplus</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=realme">realme</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=vivo">vivo</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=oppo">oppo</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=dell">dell</a></li>
+                                    <li><a class="dropdown-item" href="product.aspx?category=smartwatch">smartwatch</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="addcart.aspx">Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="orders.aspx">Orders</a>
+                            </li>
+
+                            <% if (Session["username"] == null)
+                                {  %>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="register.aspx">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.aspx">Login</a>
+                            </li>
+
+                            <% }
+                                else
+                                {  %>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <%=Session["username"].ToString() %>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="user-profile.aspx">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="logout.aspx">Logout</a></li>
+                                </ul>
+                            </li>
+
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <%-- footer section --%>
+
+            <div class="bg-dark text-light">
+                <div class="container py-3 pt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <h4>About Us</h4>
+                                    <div class="underline bg-primary mb-2" style="height: 3px; width: 60px;"></div>
+                                    <label class="mt-2 text-left w-75">Selling best new smartphone with extra features and facility, with all kind of gurantees. You are purchased all new brands smartphone from our website. You are purchased all new brands smartphone from our website.</label>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4>Contcat Info</h4>
+                                    <div class="underline bg-primary mb-2" style="height: 3px; width: 100px;"></div>
+                                    <label class="mt-2">
+                                        <li class="list-group-item">&nbsp;UMIYA Mobile & Accessories Shop,</li>
+                                        <li class="list-group-item">&nbsp;Address:
+                                            <br />
+                                            University Rd, Panchayat Chowk,<br /> 
+                                            Panchayat Nagar, Rajkot, Gujarat 360005</li>
+                                        <li class="list-group-item">&nbsp;Contact On:
+                                            <br />
+                                            +91 9512440022 </li>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4>Location</h4>
+                                    <p><iframe id="map-canvas" class="map_part" width="330"  height="180"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=University Rd, Panchayat Chowk, Panchayat Nagar, Rajkot, Gujarat 360005&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">Powered by <a href="https://www.googlemapsgenerator.com/">html embed google maps</a> and <a href="https://allabeviljas.se/">smslån som beviljar alla</a></iframe></p>
+                                    
+                            </div>
+                            <hr>
+                            <p class="text-center">&copy;UMIYA MOBILE. All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+</html>
